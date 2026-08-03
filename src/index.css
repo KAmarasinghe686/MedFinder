@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #0f172a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0;
+}
+
+p,
+li,
+label,
+input,
+select,
+textarea,
+button,
+a {
+  line-height: 1.55;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Hide Sienna outside the selected public and patient-dashboard routes. */
+html:not(.medfinder-sienna-enabled) .asw-container {
+  display: none !important;
+}
+
+.medfinder-language-switcher {
+  display: block;
+  position: fixed;
+  top: 5.25rem;
+  left: 1rem;
+  z-index: 80;
+  max-width: calc(100vw - 2rem);
+}
+
+.medfinder-language-switcher--visible {
+  display: block;
+}
+
+.medfinder-language-switcher--portal {
+  top: 1rem;
+  z-index: 120;
+}
+
+.medfinder-language-switcher .gtranslate_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-height: 2.25rem;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.96);
+  padding: 0.25rem 0.45rem;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 0.12);
+}
+
+.medfinder-language-switcher .gtranslate_wrapper a,
+.medfinder-language-switcher .gtranslate_wrapper select,
+.medfinder-language-switcher .gtranslate_wrapper button {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: rgb(51 65 85);
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.medfinder-language-switcher .gtranslate_wrapper a:hover,
+.medfinder-language-switcher .gtranslate_wrapper select:hover,
+.medfinder-language-switcher .gtranslate_wrapper button:hover {
+  border-radius: 9999px;
+  background: rgb(236 253 245);
+  color: rgb(4 120 87);
+}
+
+a,
+button {
+  transition: all 180ms ease;
+}
+
+.text-xs {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.text-sm {
+  font-size: 1rem;
+  line-height: 1.65rem;
+}
+
+.text-base {
+  font-size: 1.1rem;
+  line-height: 1.78rem;
+}
+
+.text-slate-400 {
+  color: #64748b;
+}
+
+.text-slate-500 {
+  color: #475569;
+}
+
+.text-slate-600 {
+  color: #334155;
+}
+
+input,
+select,
+textarea {
+  min-height: 3rem;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softScaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softGlow {
+  0%,
+  100% {
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  }
+  50% {
+    box-shadow: 0 24px 62px rgba(16, 185, 129, 0.14);
+  }
+}
+
+main > section,
+main > div,
+main > article {
+  animation: riseIn 0.62s ease both;
+}
+
+header {
+  animation: slideDown 0.42s ease both;
+}
+
+footer {
+  animation: riseIn 0.55s ease both;
+}
+
+main > section > div,
+main > section article,
+main > section form,
+main > section aside > div {
+  animation: softScaleIn 0.58s ease both;
+}
+
+main > section:nth-of-type(2) {
+  animation-delay: 0.04s;
+}
+
+main > section:nth-of-type(3) {
+  animation-delay: 0.08s;
+}
+
+main > section:nth-of-type(4) {
+  animation-delay: 0.12s;
+}
+
+main > section {
+  position: relative;
+}
+
+/* Section backgrounds are set per-component — no global overrides here */
+
+article,
+aside > div,
+form,
+.shadow-sm,
+.shadow-lg {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+article:hover,
+aside > div:hover {
+  border-color: rgba(16, 185, 129, 0.38);
+}
+
+article:hover,
+main > section [class*="shadow"]:hover {
+  transform: translateY(-4px);
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-1px);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+}
+
+section img {
+  transition:
+    transform 420ms ease,
+    filter 420ms ease,
+    opacity 420ms ease;
+}
+
+section a:hover img,
+article:hover img,
+section [class*="overflow-hidden"]:hover > img {
+  transform: scale(1.035);
+}
+
+main > section [class*="bg-white"][class*="shadow"] {
+  animation-name: softScaleIn, softGlow;
+  animation-duration: 0.58s, 7s;
+  animation-timing-function: ease, ease-in-out;
+  animation-iteration-count: 1, infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Extra animation keyframes ─────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.88); }
+  70%  { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0);    }
+}
+
+/* ── Utility animation classes ─────────────────────────────────────────────── */
+
+.animate-fade-up   { animation: fadeInUp    0.65s ease-out both; }
+.animate-fade-left { animation: fadeInLeft  0.65s ease-out both; }
+.animate-fade-right{ animation: fadeInRight 0.65s ease-out both; }
+.animate-pop-in    { animation: popIn       0.55s cubic-bezier(.34,1.56,.64,1) both; }
+.animate-float     { animation: floatUpDown 4s ease-in-out infinite; }
+.animate-float-slow{ animation: floatUpDown 6s ease-in-out infinite; }
+.animate-pulse-ring{ animation: pulseRing   2s ease-out infinite; }
+
+/* ── Stagger helpers (used with FadeIn component) ──────────────────────────── */
+.delay-100  { transition-delay: 100ms !important; }
+.delay-200  { transition-delay: 200ms !important; }
+.delay-300  { transition-delay: 300ms !important; }
+.delay-400  { transition-delay: 400ms !important; }
+.delay-500  { transition-delay: 500ms !important; }
+
+@keyframes typewriterBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
